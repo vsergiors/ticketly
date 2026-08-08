@@ -63,10 +63,10 @@ module.exports = {
         ),
         new ActionRowBuilder().addComponents(
           new TextInputBuilder()
-            .setCustomId('claimed_channel_name')
+            .setCustomId('claimed_prefix')
             .setLabel('Nombre del canal al reclamar')
             .setStyle(TextInputStyle.Short)
-            .setValue(config?.claimed_channel_name || '🛠️・ticket-{n}')
+            .setValue(config?.claimed_prefix || '🛠️・ticket-{n}')
             .setRequired(true)
         ),
         new ActionRowBuilder().addComponents(
