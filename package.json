@@ -1,7 +1,7 @@
 {
   "name": "ticketly-bot",
   "version": "1.0.0",
-  "description": "Bot de tickets configurable hecho por CapiStudio",
+  "description": "Bot de tickets configurable de CapiStudio",
   "main": "src/index.js",
   "type": "commonjs",
   "scripts": {
@@ -11,6 +11,7 @@
   "dependencies": {
     "@supabase/supabase-js": "^2.45.4",
     "discord.js": "^14.16.3",
-    "dotenv": "^16.4.5"
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2"
   }
 }
