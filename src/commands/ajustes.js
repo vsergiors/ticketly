@@ -40,7 +40,7 @@ module.exports = {
         .setColor('#5865F2')
         .addFields(
           { name: 'Formato nombre ticket', value: config?.ticket_name_format || 'ticket-{n}', inline: true },
-          { name: 'Nombre al reclamar', value: config?.claimed_channel_name || '🛠️・ticket-{n}', inline: true },
+          { name: 'Nombre del canal al reclamar', value: config?.claimed_channel_name || '🛠️・ticket-{n}', inline: true },
           { name: 'Máx. tickets/usuario', value: String(config?.max_open_per_user ?? 1), inline: true },
           { name: 'Categoría por defecto', value: config?.category_open_fallback ? `<#${config.category_open_fallback}>` : '—', inline: true },
           { name: 'Canal transcripts', value: config?.transcripts_channel_id ? `<#${config.transcripts_channel_id}>` : '—', inline: true },
@@ -63,10 +63,10 @@ module.exports = {
         ),
         new ActionRowBuilder().addComponents(
           new TextInputBuilder()
-            .setCustomId('claimed_prefix')
+            .setCustomId('claimed_channel_name')
             .setLabel('Nombre del canal al reclamar')
             .setStyle(TextInputStyle.Short)
-            .setValue(config?.claimed_prefix || '🛠️・ticket-{n}')
+            .setValue(config?.claimed_channel_name || '🛠️・ticket-{n}')
             .setRequired(true)
         ),
         new ActionRowBuilder().addComponents(
