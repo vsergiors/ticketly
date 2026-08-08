@@ -35,7 +35,7 @@ module.exports = {
       // ---------- modales ----------
       if (interaction.isModalSubmit() && interaction.customId === 'ajustes_texto_modal') {
         const ticketNameFormat = interaction.fields.getTextInputValue('ticket_name_format');
-        const claimedPrefix = interaction.fields.getTextInputValue('claimed_prefix');
+        const claimedChannelName = interaction.fields.getTextInputValue('claimed_channel_name');
         const maxOpenRaw = interaction.fields.getTextInputValue('max_open_per_user');
         const welcomeMessage = interaction.fields.getTextInputValue('welcome_message');
 
@@ -48,7 +48,7 @@ module.exports = {
           .from('guilds')
           .update({
             ticket_name_format: ticketNameFormat,
-            claimed_prefix: claimedPrefix,
+            claimed_channel_name: claimedChannelName,
             max_open_per_user: maxOpen,
             welcome_message: welcomeMessage,
           })
