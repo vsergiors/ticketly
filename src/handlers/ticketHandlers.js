@@ -300,11 +300,12 @@ async function claimTicket(interaction) {
     .update({ status: 'claimed', claimed_by: interaction.user.id, claimed_at: new Date().toISOString() })
     .eq('id', ticket.id);
 
-  const prefix = guildConfig.claimed_prefix || 'reclamado';
-  const baseName = interaction.channel.name.replace(/^[a-z-]+-(?=\d)/, '').split('-').pop();
-  try {
-    await interaction.channel.setName(`${prefix}-${baseName}`);
-  } catch (_) {}
+  const claimedName = (guildConfig.claimed_channel_name || '🛠️・ticket-{n}')
+  .replace('{n}', ticket.number);
+
+try {
+  await interaction.channel.setName(claimedName);
+} catch (_) {}
 
   await interaction.reply({ content: `🙋 Ticket reclamado por <@${interaction.user.id}>.` });
 
