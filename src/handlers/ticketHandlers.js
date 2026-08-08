@@ -336,10 +336,12 @@ async function unclaimTicket(interaction) {
 
   await supabase.from('tickets').update({ status: 'open', claimed_by: null, claimed_at: null }).eq('id', ticket.id);
 
-  const original = `ticket-${ticket.number}`;
-  try {
-    await interaction.channel.setName(original);
-  } catch (_) {}
+  const originalName = (guildConfig.ticket_name_format || 'ticket-{n}')
+  .replace('{n}', ticket.number);
+
+try {
+  await interaction.channel.setName(originalName);
+} catch (_) {}
 
   await interaction.reply({ content: '🙌 Reclamación retirada.' });
 
