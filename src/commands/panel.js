@@ -71,7 +71,8 @@ module.exports = {
       const nombre = interaction.options.getString('nombre');
       const canal = interaction.options.getChannel('canal');
       const titulo = interaction.options.getString('titulo') || 'Soporte';
-      const descripcion = interaction.options.getString('descripcion') || 'Pulsa el botón de tu departamento para abrir un ticket.';
+      const descripcion = (interaction.options.getString('descripcion') || 'Pulsa el botón de tu departamento para abrir un ticket.')
+        .replace(/\/n/g, '\n');
       const color = interaction.options.getString('color') || '#2b2d31';
       const modo = interaction.options.getString('modo') || 'botones';
 
