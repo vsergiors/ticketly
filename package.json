@@ -1,7 +1,7 @@
 {
-  "name": "capiticket-bot",
+  "name": "ticketly-bot",
   "version": "1.0.0",
-  "description": "Bot de tickets configurable de CapiStudio",
+  "description": "Bot de tickets configurable hecho por CapiStudio",
   "main": "src/index.js",
   "type": "commonjs",
   "scripts": {
