@@ -1,7 +1,13 @@
 require('dotenv').config();
 const fs = require('fs');
 const path = require('path');
+const express = require('express');
 const { Client, GatewayIntentBits, Collection, Partials } = require('discord.js');
+
+// ---------- mini servidor HTTP para que Render detecte el puerto ----------
+const app = express();
+app.get('/', (req, res) => res.send('Ticketly bot activo ✅'));
+app.listen(process.env.PORT || 3000, () => console.log(`🌐 HTTP listo en puerto ${process.env.PORT || 3000}`));
 
 const client = new Client({
   intents: [
